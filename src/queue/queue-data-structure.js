@@ -10,17 +10,19 @@ class Queue {
   }
 
   isEmpty() {
-    if (this.queueControl.length == 0) return false;
-    else return true;
+    if (this.queueControl.length == 0) return true;
+    else return false;
   }
 
   enqueue(item) {
-    if (this.canEnqueue()) this.queueControl.push(item);
-    else return "Queue Overflow";
+    if (this.canEnqueue()) {
+      this.queueControl.push(item);
+      return this.queueControl;
+    } else return "Queue Overflow";
   }
 
   dequeue() {
-    if (this.isEmpty()) this.queueControl.pop();
+    if (!this.isEmpty()) return this.queueControl.pop();
     else return "Queue Underflow";
   }
 

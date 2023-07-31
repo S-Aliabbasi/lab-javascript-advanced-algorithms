@@ -10,18 +10,24 @@ class Stack {
   }
 
   isEmpty() {
-    if (this.stackControl.length == 0) return false;
-    else return true;
+    if (this.stackControl.length == 0) return true;
+    else return false;
   }
 
   push(item) {
-    if (this.canPush()) this.stackControl.push(item);
-    else return "Stack Overflow";
+    if (this.canPush()) {
+      this.stackControl.push(item);
+      return this.stackControl;
+    } else {
+      return "Stack Overflow";
+    }
   }
 
   pop() {
-    if (this.isEmpty()) this.stackControl.pop();
-    else return "Stack Underflow";
+    if (!this.isEmpty()) return this.stackControl.pop();
+    else {
+      return "Stack Underflow";
+    }
   }
 
   display() {
